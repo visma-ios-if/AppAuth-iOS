@@ -677,7 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
   NSString *bodyString = [[NSString alloc] initWithData:request.HTTPBody
                                                encoding:NSUTF8StringEncoding];
   NSArray *components = [bodyString componentsSeparatedByString:@"&"];
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS %@", @"refresh_token"];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", @"refresh_token"];
   NSString *refreshTokenComponent = [[components filteredArrayUsingPredicate:predicate] firstObject];
   NSString *refreshToken = [refreshTokenComponent stringByReplacingOccurrencesOfString:@"refresh_token="
                                                                             withString:@""];
