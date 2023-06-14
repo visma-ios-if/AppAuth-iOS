@@ -16,6 +16,7 @@
         limitations under the License.
  */
 
+#import "AppAuthLogger.h"
 #import "OIDAuthState.h"
 #import "OIDAuthStateChangeDelegate.h"
 #import "OIDAuthStateErrorDelegate.h"

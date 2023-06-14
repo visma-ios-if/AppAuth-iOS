@@ -13,6 +13,23 @@
 		06C19E9B22B474A200C19CE1 /* OIDEndSessionResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = CF6431F31F228A980075B6B5 /* OIDEndSessionResponse.m */; };
 		06C19E9C22B474A600C19CE1 /* OIDEndSessionRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CF37C06B1F1FC21A00662E41 /* OIDEndSessionRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		06C19E9D22B474AD00C19CE1 /* OIDEndSessionRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CF37C06C1F1FC21A00662E41 /* OIDEndSessionRequest.m */; };
+		07B274A32A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274A42A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274A52A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274A62A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274A72A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274A82A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274A92A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		07B274AA2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274AB2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274AC2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274AD2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274AE2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274AF2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274B02A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274B12A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274B22A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
+		07B274B32A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */; };
 		2D47AAE1249A87020059B5A4 /* OIDTVAuthorizationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D47AAD8249A87010059B5A4 /* OIDTVAuthorizationResponse.m */; };
 		2D47AAE4249A87020059B5A4 /* OIDTVServiceConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D47AADA249A87010059B5A4 /* OIDTVServiceConfiguration.m */; };
 		2D47AAE8249A87020059B5A4 /* OIDTVAuthorizationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D47AADD249A87010059B5A4 /* OIDTVAuthorizationRequest.m */; };
@@ -697,6 +714,8 @@
 		039697441FA8258D003D1FB2 /* OIDURLSessionProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDURLSessionProvider.h; sourceTree = "<group>"; };
 		039697451FA8258D003D1FB2 /* OIDURLSessionProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIDURLSessionProvider.m; sourceTree = "<group>"; };
 		0396974C1FA827AD003D1FB2 /* OIDURLSessionProviderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OIDURLSessionProviderTests.m; sourceTree = "<group>"; };
+		07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppAuthLogger.h; sourceTree = "<group>"; };
+		07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppAuthLogger.m; sourceTree = "<group>"; };
 		2D47AAD8249A87010059B5A4 /* OIDTVAuthorizationResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIDTVAuthorizationResponse.m; sourceTree = "<group>"; };
 		2D47AAD9249A87010059B5A4 /* OIDTVAuthorizationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OIDTVAuthorizationRequest.h; sourceTree = "<group>"; };
 		2D47AADA249A87010059B5A4 /* OIDTVServiceConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OIDTVServiceConfiguration.m; sourceTree = "<group>"; };
@@ -1179,6 +1198,8 @@
 		8A9B9D5E24561EC40055353E /* AppAuthCore */ = {
 			isa = PBXGroup;
 			children = (
+				07B274A12A39B9AC00F0E2A4 /* AppAuthLogger.h */,
+				07B274A22A39B9AC00F0E2A4 /* AppAuthLogger.m */,
 				341741B41C5D8243000EF209 /* OIDAuthorizationRequest.h */,
 				341741B51C5D8243000EF209 /* OIDAuthorizationRequest.m */,
 				341741B61C5D8243000EF209 /* OIDAuthorizationResponse.h */,
@@ -1282,6 +1303,7 @@
 				2D93862124B3881B009A12D7 /* OIDAuthStateChangeDelegate.h in Headers */,
 				2D93862A24B3881C009A12D7 /* OIDExternalUserAgentSession.h in Headers */,
 				2D93863324B38826009A12D7 /* OIDRegistrationResponse.h in Headers */,
+				07B274A92A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				2D93864324B38828009A12D7 /* OIDServiceDiscovery.h in Headers */,
 				2D93862624B3881C009A12D7 /* OIDError.h in Headers */,
 				2D93864524B38828009A12D7 /* OIDTokenRequest.h in Headers */,
@@ -1309,6 +1331,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				07B274A32A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				340DAE741D58223A00EC285B /* AppAuth.h in Headers */,
 				34FEA6AE1DB6E083005C9212 /* OIDLoopbackHTTPServer.h in Headers */,
 			);
@@ -1326,6 +1349,7 @@
 				06C19E9C22B474A600C19CE1 /* OIDEndSessionRequest.h in Headers */,
 				342F42A92177B1FC00574F24 /* OIDResponseTypes.h in Headers */,
 				342F42AA2177B1FC00574F24 /* OIDTokenRequest.h in Headers */,
+				07B274A82A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				342F42AB2177B1FC00574F24 /* OIDScopeUtilities.h in Headers */,
 				342F42AC2177B1FC00574F24 /* OIDTokenResponse.h in Headers */,
 				06C19E9A22B4749900C19CE1 /* OIDEndSessionResponse.h in Headers */,
@@ -1364,6 +1388,7 @@
 				343AAAF41E83499000F9D36E /* OIDScopeUtilities.h in Headers */,
 				343AAAF81E83499000F9D36E /* OIDTokenResponse.h in Headers */,
 				A6DEABB42018ECF20022AC32 /* OIDEndSessionResponse.h in Headers */,
+				07B274A42A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				343AAAF61E83499000F9D36E /* OIDServiceDiscovery.h in Headers */,
 				343AAAF11E83499000F9D36E /* OIDGrantTypes.h in Headers */,
 				55A094CF20DFBB10000045D1 /* OIDURLSessionProvider.h in Headers */,
@@ -1399,6 +1424,7 @@
 				343AAB0D1E83499100F9D36E /* OIDServiceConfiguration.h in Headers */,
 				A6DEABA02018E4B00022AC32 /* OIDExternalUserAgentRequest.h in Headers */,
 				343AAAFD1E83499100F9D36E /* OIDAuthorizationService.h in Headers */,
+				07B274A52A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				343AAB0F1E83499100F9D36E /* OIDTokenRequest.h in Headers */,
 				343AAB071E83499100F9D36E /* OIDRegistrationResponse.h in Headers */,
 				343AAB0E1E83499100F9D36E /* OIDServiceDiscovery.h in Headers */,
@@ -1433,6 +1459,7 @@
 				343AAB251E83499200F9D36E /* OIDServiceConfiguration.h in Headers */,
 				A6DEABA22018E4B60022AC32 /* OIDExternalUserAgentRequest.h in Headers */,
 				343AAB151E83499200F9D36E /* OIDAuthorizationService.h in Headers */,
+				07B274A62A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				343AAB271E83499200F9D36E /* OIDTokenRequest.h in Headers */,
 				343AAB1F1E83499200F9D36E /* OIDRegistrationResponse.h in Headers */,
 				343AAB261E83499200F9D36E /* OIDServiceDiscovery.h in Headers */,
@@ -1471,6 +1498,7 @@
 				343AAB411E83499200F9D36E /* OIDTokenUtilities.h in Headers */,
 				A6DEABA32018E4B70022AC32 /* OIDExternalUserAgentRequest.h in Headers */,
 				343AAB371E83499200F9D36E /* OIDRegistrationResponse.h in Headers */,
+				07B274A72A39B9AC00F0E2A4 /* AppAuthLogger.h in Headers */,
 				343AAB2B1E83499200F9D36E /* OIDAuthorizationRequest.h in Headers */,
 				343AAB3B1E83499200F9D36E /* OIDScopes.h in Headers */,
 				343AAB2C1E83499200F9D36E /* OIDAuthorizationResponse.h in Headers */,
@@ -2060,6 +2088,7 @@
 				2D93862E24B38826009A12D7 /* OIDFieldMapping.m in Sources */,
 				2D93864024B38828009A12D7 /* OIDScopeUtilities.m in Sources */,
 				2D93862024B3881B009A12D7 /* OIDAuthState.m in Sources */,
+				07B274B32A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				2D93861924B38803009A12D7 /* OIDAuthorizationRequest.m in Sources */,
 				2D93863824B38827009A12D7 /* OIDGrantTypes.m in Sources */,
 				2D93864824B38828009A12D7 /* OIDTokenResponse.m in Sources */,
@@ -2096,6 +2125,7 @@
 				341310C21E6F944B00D5DEE5 /* OIDError.m in Sources */,
 				341310BE1E6F943C00D5DEE5 /* OIDClientMetadataParameters.m in Sources */,
 				34FEA6AF1DB6E083005C9212 /* OIDLoopbackHTTPServer.m in Sources */,
+				07B274AB2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				341310C61E6F944B00D5DEE5 /* OIDRegistrationRequest.m in Sources */,
 				340DAEBC1D582AF100EC285B /* OIDRedirectHTTPHandler.m in Sources */,
 				340DAE5D1D5821AB00EC285B /* OIDAuthState.m in Sources */,
@@ -2156,6 +2186,7 @@
 				340DAECB1D582DE100EC285B /* OIDAuthorizationService+IOS.m in Sources */,
 				341741E31C5D8243000EF209 /* OIDResponseTypes.m in Sources */,
 				341741E41C5D8243000EF209 /* OIDScopes.m in Sources */,
+				07B274AA2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				341741E71C5D8243000EF209 /* OIDServiceDiscovery.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2263,6 +2294,7 @@
 				341310D41E6F944D00D5DEE5 /* OIDErrorUtilities.m in Sources */,
 				341310D81E6F944D00D5DEE5 /* OIDGrantTypes.m in Sources */,
 				2D47AAE4249A87020059B5A4 /* OIDTVServiceConfiguration.m in Sources */,
+				07B274AC2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				2D47AAE8249A87020059B5A4 /* OIDTVAuthorizationRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2289,6 +2321,7 @@
 				342F42982177B1FC00574F24 /* OIDURLSessionProvider.m in Sources */,
 				342F42992177B1FC00574F24 /* OIDScopes.m in Sources */,
 				342F429A2177B1FC00574F24 /* OIDScopeUtilities.m in Sources */,
+				07B274B22A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				342F429B2177B1FC00574F24 /* OIDGrantTypes.m in Sources */,
 				06C19E9B22B474A200C19CE1 /* OIDEndSessionResponse.m in Sources */,
 				342F429C2177B1FC00574F24 /* OIDRegistrationRequest.m in Sources */,
@@ -2305,6 +2338,7 @@
 				A6DEABAF2018E5D80022AC32 /* OIDExternalUserAgentIOS.m in Sources */,
 				F9A7082F2355ED74004B3E6D /* OIDExternalUserAgentCatalyst.m in Sources */,
 				343AAA881E83478900F9D36E /* OIDFieldMapping.m in Sources */,
+				07B274AE2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				34A663311E871DD40060B664 /* OIDIDToken.m in Sources */,
 				C14E3B6927E3BEFB00CF05A9 /* OIDExternalUserAgentIOSCustomBrowser.m in Sources */,
 				A6DEAB862017A7060022AC32 /* OIDEndSessionResponse.m in Sources */,
@@ -2380,6 +2414,7 @@
 				A6DEAB872017A70B0022AC32 /* OIDEndSessionResponse.m in Sources */,
 				343AAB791E8349B000F9D36E /* OIDServiceConfiguration.m in Sources */,
 				343AAB6F1E8349B000F9D36E /* OIDClientMetadataParameters.m in Sources */,
+				07B274AF2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				343AAB7D1E8349B000F9D36E /* OIDTokenUtilities.m in Sources */,
 				343AAB6D1E8349B000F9D36E /* OIDAuthorizationService.m in Sources */,
 				343AAB761E8349B000F9D36E /* OIDResponseTypes.m in Sources */,
@@ -2411,6 +2446,7 @@
 				A6DEAB882017A70B0022AC32 /* OIDEndSessionResponse.m in Sources */,
 				343AAB651E8349B000F9D36E /* OIDServiceConfiguration.m in Sources */,
 				343AAB5B1E8349B000F9D36E /* OIDClientMetadataParameters.m in Sources */,
+				07B274B02A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				343AAB691E8349B000F9D36E /* OIDTokenUtilities.m in Sources */,
 				343AAB591E8349B000F9D36E /* OIDAuthorizationService.m in Sources */,
 				343AAB621E8349B000F9D36E /* OIDResponseTypes.m in Sources */,
@@ -2451,6 +2487,7 @@
 				343AAB481E8349AF00F9D36E /* OIDError.m in Sources */,
 				343AAADC1E83493D00F9D36E /* OIDAuthState+Mac.m in Sources */,
 				343AAADA1E83493D00F9D36E /* OIDAuthorizationService+Mac.m in Sources */,
+				07B274B12A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				343AAB4C1E8349AF00F9D36E /* OIDRegistrationRequest.m in Sources */,
 				A6DEAB8D2017A7170022AC32 /* OIDEndSessionRequest.m in Sources */,
 				343AAB451E8349AF00F9D36E /* OIDAuthorizationService.m in Sources */,
@@ -2526,6 +2563,7 @@
 				3474240D1E7F4BA000D3E6D6 /* OIDServiceConfiguration.m in Sources */,
 				347424031E7F4BA000D3E6D6 /* OIDClientMetadataParameters.m in Sources */,
 				347424111E7F4BA000D3E6D6 /* OIDTokenUtilities.m in Sources */,
+				07B274AD2A39B9AC00F0E2A4 /* AppAuthLogger.m in Sources */,
 				347424011E7F4BA000D3E6D6 /* OIDAuthorizationService.m in Sources */,
 				3474240A1E7F4BA000D3E6D6 /* OIDResponseTypes.m in Sources */,
 				347424121E7F4BA000D3E6D6 /* OIDURLQueryComponent.m in Sources */,
