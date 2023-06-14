@@ -19,11 +19,11 @@
       return _sharedObject;
 }
 
-+ (void)printMessage:(NSString *)message {
++ (void)logMessage:(NSString *)message {
   [AppAuthLogger.shared.delegate appAuthLogMessage:message];
 }
 
-+ (void)printNonFatal:(NSString *)message {
++ (void)logNonFatal:(NSString *)message {
   [AppAuthLogger.shared.delegate appAuthNonfatalMessage:message];
 }
 

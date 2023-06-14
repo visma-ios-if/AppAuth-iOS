@@ -21,8 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, weak) id<AppAuthLoggerDelegate> delegate;
 
 + (instancetype)shared;
-+ (void)printMessage:(NSString *)message;
-+ (void)printNonFatal:(NSString *)message;
++ (void)logMessage:(NSString *)message;
++ (void)logNonFatal:(NSString *)message;
 
 @end
 

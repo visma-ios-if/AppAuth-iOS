@@ -35,6 +35,7 @@
 #import "OIDTokenResponse.h"
 #import "OIDURLQueryComponent.h"
 #import "OIDURLSessionProvider.h"
+#import "AppAuthLogger.h"
 
 /*! @brief Path appended to an OpenID Connect issuer for discovery
     @see https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig
@@ -437,6 +438,13 @@ NS_ASSUME_NONNULL_BEGIN
                       URLRequest.allHTTPHeaderFields,
                       [[NSString alloc] initWithData:URLRequest.HTTPBody
                                             encoding:NSUTF8StringEncoding]);
+  NSString *bodyString = [[NSString alloc] initWithData:URLRequest.HTTPBody
+                                               encoding:NSUTF8StringEncoding];
+  if (![self hasRefreshTokenInRequest:URLRequest]) {
+    NSString *log = [NSString stringWithFormat:@"Token request: %@, headers: %@, body: %@", URLRequest.URL.absoluteString, URLRequest.allHTTPHeaderFields, bodyString];
+    [AppAuthLogger logMessage:log];
+    [AppAuthLogger logNonFatal:@"Empty refresh token in AUTH body"];
+  }
 
   NSURLSession *session = [OIDURLSessionProvider session];
   [[session dataTaskWithRequest:URLRequest
@@ -663,6 +671,17 @@ NS_ASSUME_NONNULL_BEGIN
       callback(tokenResponse, nil);
     });
   }] resume];
+}
+
++ (BOOL)hasRefreshTokenInRequest:(NSURLRequest *)request {
+  NSString *bodyString = [[NSString alloc] initWithData:request.HTTPBody
+                                               encoding:NSUTF8StringEncoding];
+  NSArray *components = [bodyString componentsSeparatedByString:@"&"];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K CONTAINS %@", @"refresh_token"];
+  NSString *refreshTokenComponent = [[components filteredArrayUsingPredicate:predicate] firstObject];
+  NSString *refreshToken = [refreshTokenComponent stringByReplacingOccurrencesOfString:@"refresh_token="
+                                                                            withString:@""];
+  return [refreshToken length] != 0;
 }
 
 
