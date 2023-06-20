@@ -431,6 +431,7 @@ NS_ASSUME_NONNULL_BEGIN
     originalAuthorizationResponse:(OIDAuthorizationResponse *_Nullable)authorizationResponse
                          callback:(OIDTokenCallback)callback {
 
+  [AppAuthLogger logMessage:@"AppAuth - Prepare to perform Token Request call"];
   NSURLRequest *URLRequest = [request URLRequest];
   
   AppAuthRequestTrace(@"Token Request: %@\nHeaders:%@\nHTTPBody: %@",
@@ -443,7 +444,7 @@ NS_ASSUME_NONNULL_BEGIN
   if (![self hasRefreshTokenInRequest:URLRequest]) {
     NSString *log = [NSString stringWithFormat:@"Token request: %@, headers: %@, body: %@", URLRequest.URL.absoluteString, URLRequest.allHTTPHeaderFields, bodyString];
     [AppAuthLogger logMessage:log];
-    [AppAuthLogger logNonFatal:@"Empty refresh token in AUTH body"];
+    [self sendNonFatalMessage:@"AppAuth - Empty refresh token in AUTH body" error:nil];
   }
 
   NSURLSession *session = [OIDURLSessionProvider session];
@@ -462,6 +463,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:error
                                description:errorDescription];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:error];
         callback(nil, returnedError);
       });
       return;
@@ -491,6 +493,7 @@ NS_ASSUME_NONNULL_BEGIN
                                       OAuthResponse:json
                                     underlyingError:serverError];
           dispatch_async(dispatch_get_main_queue(), ^{
+            [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:oauthError];
             callback(nil, oauthError);
           });
           return;
@@ -507,6 +510,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:serverError
                                description:errorDescription];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:error];
         callback(nil, returnedError);
       });
       return;
@@ -525,6 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:jsonDeserializationError
                                description:errorDescription];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:returnedError];
         callback(nil, returnedError);
       });
       return;
@@ -539,6 +544,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:jsonDeserializationError
                                description:@"Token response invalid."];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:returnedError];
         callback(nil, returnedError);
       });
       return;
@@ -560,6 +566,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:nil
                                description:@"ID Token parsing failed"];
         dispatch_async(dispatch_get_main_queue(), ^{
+          [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:invalidIDToken];
           callback(nil, invalidIDToken);
         });
         return;
@@ -577,6 +584,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:nil
                                description:@"Issuer mismatch"];
         dispatch_async(dispatch_get_main_queue(), ^{
+          [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:invalidIDToken];
           callback(nil, invalidIDToken);
         });
         return;
@@ -593,6 +601,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:nil
                                description:@"Audience mismatch"];
         dispatch_async(dispatch_get_main_queue(), ^{
+          [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:invalidIDToken];
           callback(nil, invalidIDToken);
         });
         return;
@@ -619,6 +628,7 @@ NS_ASSUME_NONNULL_BEGIN
                              underlyingError:nil
                                  description:@"ID Token expired"];
         dispatch_async(dispatch_get_main_queue(), ^{
+          [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:invalidIDToken];
           callback(nil, invalidIDToken);
         });
         return;
@@ -637,6 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:nil
                                description:message];
         dispatch_async(dispatch_get_main_queue(), ^{
+          [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:invalidIDToken];
           callback(nil, invalidIDToken);
         });
         return;
@@ -653,6 +664,7 @@ NS_ASSUME_NONNULL_BEGIN
                            underlyingError:nil
                                description:@"Nonce mismatch"];
           dispatch_async(dispatch_get_main_queue(), ^{
+            [self sendNonFatalMessage:@"AppAuth Failed auth token call" error:invalidIDToken];
             callback(nil, invalidIDToken);
           });
           return;
@@ -668,6 +680,7 @@ NS_ASSUME_NONNULL_BEGIN
 
     // Success
     dispatch_async(dispatch_get_main_queue(), ^{
+      [AppAuthLogger logMessage:@"AppAuth did succeed token request"];
       callback(tokenResponse, nil);
     });
   }] resume];
@@ -688,6 +701,13 @@ NS_ASSUME_NONNULL_BEGIN
   return [refreshToken length] != 0;
 }
 
++ (void)sendNonFatalMessage:(NSString *)message error:(nullable NSError *)error {
+  NSString *errorMessage = message;
+  if (error != nil) {
+    errorMessage = [NSString stringWithFormat:@"%@. Error: %@", message, error];
+  }
+  [AppAuthLogger logNonFatal:errorMessage];
+}
 
 #pragma mark - Registration Endpoint
 
