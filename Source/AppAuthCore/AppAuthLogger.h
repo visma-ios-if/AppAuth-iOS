@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define APP_AUTH_LOGGER 1
+
 NS_ASSUME_NONNULL_BEGIN
 
 @protocol AppAuthLoggerDelegate <NSObject>
