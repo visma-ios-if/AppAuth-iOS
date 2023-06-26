@@ -446,7 +446,7 @@ NS_ASSUME_NONNULL_BEGIN
                                             encoding:NSUTF8StringEncoding]);
   NSString *bodyString = [[NSString alloc] initWithData:URLRequest.HTTPBody
                                                encoding:NSUTF8StringEncoding];
-  if (![self hasRefreshTokenInRequest:URLRequest]) {
+  if ([self isTokenRefreshRequest:URLRequest] && ![self hasRefreshTokenInRequest:URLRequest]) {
     NSString *log = [NSString stringWithFormat:@"Token request: %@, headers: %@, body: %@", URLRequest.URL.absoluteString, URLRequest.allHTTPHeaderFields, bodyString];
     [AppAuthLogger logMessage:log];
     [self sendNonFatalMessage:@"Empty refresh token in AUTH body" error:nil];
@@ -694,9 +694,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)hasRefreshTokenInRequest:(NSURLRequest *)request {
   NSString *bodyString = [[NSString alloc] initWithData:request.HTTPBody
                                                encoding:NSUTF8StringEncoding];
-  if (![self isGrantTypeRefreshFrom:bodyString]) {
-    return NO; // given request is not refresh token call
-  }
   NSArray *components = [bodyString componentsSeparatedByString:@"&"];
   NSString *refreshToken = @"";
   for (NSString *parameter in components) {
@@ -709,8 +706,11 @@ NS_ASSUME_NONNULL_BEGIN
   return [refreshToken length] != 0;
 }
 
-+ (BOOL)isGrantTypeRefreshFrom:(NSString *)body {
-  NSArray *components = [body componentsSeparatedByString:@"grant_type="];
++ (BOOL)isTokenRefreshRequest:(NSURLRequest *)request {
+  NSString *bodyString = [[NSString alloc] initWithData:request.HTTPBody
+                                               encoding:NSUTF8StringEncoding];
+
+  NSArray *components = [bodyString componentsSeparatedByString:@"grant_type="];
   if ([components count] >= 1) {
     NSString *grant = components[1];
     return [grant isEqualToString:@"refresh_token"];
