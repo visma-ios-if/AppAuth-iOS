@@ -329,6 +329,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)discoverServiceConfigurationForDiscoveryURL:(NSURL *)discoveryURL
     completion:(OIDDiscoveryCallback)completion {
 
+  NSString *message = [NSString stringWithFormat:@"OIDAuthorizationService discover service, with url: %@", discoveryURL];
+  [AppAuthLogger logMessage:message];
   NSURLSession *session = [OIDURLSessionProvider session];
   NSURLSessionDataTask *task =
       [session dataTaskWithURL:discoveryURL
@@ -343,6 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
                                underlyingError:error
                                    description:errorDescription];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"Failed to discover service configuration" error:error];
         completion(nil, error);
       });
       return;
@@ -364,6 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
                                underlyingError:URLResponseError
                                    description:errorDescription];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"Failed to discover service configuration" error:error];
         completion(nil, error);
       });
       return;
@@ -381,6 +385,7 @@ NS_ASSUME_NONNULL_BEGIN
                                underlyingError:error
                                    description:errorDescription];
       dispatch_async(dispatch_get_main_queue(), ^{
+        [self sendNonFatalMessage:@"Failed to discover service configuration" error:error];
         completion(nil, error);
       });
       return;
@@ -689,6 +694,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)hasRefreshTokenInRequest:(NSURLRequest *)request {
   NSString *bodyString = [[NSString alloc] initWithData:request.HTTPBody
                                                encoding:NSUTF8StringEncoding];
+  if (![self isGrantTypeRefreshFrom:bodyString]) {
+    return NO; // given request is not refresh token call
+  }
   NSArray *components = [bodyString componentsSeparatedByString:@"&"];
   NSString *refreshToken = @"";
   for (NSString *parameter in components) {
@@ -699,6 +707,15 @@ NS_ASSUME_NONNULL_BEGIN
     }
   }
   return [refreshToken length] != 0;
+}
+
++ (BOOL)isGrantTypeRefreshFrom:(NSString *)body {
+  NSArray *components = [body componentsSeparatedByString:@"grant_type="];
+  if ([components count] >= 1) {
+    NSString *grant = components[1];
+    return [grant isEqualToString:@"refresh_token"];
+  }
+  return false;
 }
 
 + (void)sendNonFatalMessage:(NSString *)message error:(nullable NSError *)error {
